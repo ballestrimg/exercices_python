@@ -57,7 +57,7 @@ class User(db.Model):
     posts = db.relationship('Post', backref='posts', lazy=True)
 
     # relation vers la table de relation 'skills' qui relie 'User' et 'Competences'
-    # syntax var = db.relationship(Classe, secondary=nom_table_jointure, lazy=Mode), backref = db.backref('classes_lies', lazy=Mode)
+    # syntax var = db.relationship(Classe, secondary=var_table_jointure, lazy=Mode), backref = db.backref('classes_lies', lazy=Mode)
     skills_relation = db.relationship('Competences', secondary=skills, lazy='subquery', backref=db.backref('skills_relation', lazy=True))
     
     def __repr__(self):
