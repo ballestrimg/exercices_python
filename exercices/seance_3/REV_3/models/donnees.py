@@ -50,7 +50,7 @@ class CoursEau(db.Model):
     affluences = db.relationship('Affluence', backref='affluences', lazy=True)
 
     # relation vers la table de relation 'traverse' qui relie 'CoursEau' et 'SousDivisionGeographique'
-    # syntax var = db.relationship(Classe, secondary=nom_table_jointure, lazy=Mode), backref = db.backref('classes_lies', lazy=Mode)
+    # syntax var = db.relationship(Classe, secondary=nom_var_table_jointure, lazy=Mode), backref = db.backref('classes_lies', lazy=Mode)
     traverses = db.relationship('SousDivisionGeographique', secondary=traverse_table, lazy='subquery', backref=db.backref('traverses', lazy=True))
 
     def __repr__(self):
